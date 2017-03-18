@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1462618452 source:c:\users\jêdrzej\desktop\codeblocks\grafy mk ii\main.cpp
+	<iostream>
+	<iomanip>
+	<cstdlib>
+

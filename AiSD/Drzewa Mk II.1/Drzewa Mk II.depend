@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1460232442 source:c:\users\jêdrzej\desktop\codeblocks\drzewa mk ii\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cmath>
+
+1460754839 source:c:\users\jêdrzej\desktop\codeblocks\drzewa mk ii\monika knaur, jêdrzej kuczyñski.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cmath>
+	<iomanip>
+

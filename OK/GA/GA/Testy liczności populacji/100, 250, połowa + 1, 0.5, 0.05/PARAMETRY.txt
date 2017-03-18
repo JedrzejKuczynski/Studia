@@ -1,0 +1,6 @@
+Parametry:
+- liczba pokoleñ 100
+- wielkoœæ populacji 250
+- wielkoœæ populacji wybranej do reprodukcji ((wielkoœæ populacji/2) + 1)
+- prawdopodobieñstwo zajœcia crossover 50%
+- prawdopodobieñstwo zajœcia mutacji 5%

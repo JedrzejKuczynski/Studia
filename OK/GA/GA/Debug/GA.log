@@ -1,0 +1,66 @@
+﻿Build started 19-02-2017 13:27:00.
+     1>Project "C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\GA\GA\GA.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\GA.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt GA.cpp
+         GA.cpp
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(100): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(131): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(150): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(161): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(172): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(211): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(217): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(263): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(276): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(297): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(304): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(307): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(316): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(335): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(352): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(354): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(375): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(386): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(387): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(392): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(393): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(398): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(400): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(403): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(407): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(412): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(413): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(421): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(422): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(446): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(448): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(476): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(525): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(538): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(553): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(556): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(573): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(576): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(589): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(611): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(616): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(622): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(628): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(635): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(757): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(764): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(813): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(816): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(824): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(830): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(840): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\ga\ga\ga.cpp(876): warning C4018: '<': signed/unsigned mismatch
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\GA\Debug\GA.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\GA\Debug\GA.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\GA\Debug\GA.lib" /MACHINE:X86 Debug\GA.obj
+         Debug\stdafx.obj
+         GA.vcxproj -> C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\GA\Debug\GA.exe
+     1>Done Building Project "C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\GA\GA\GA.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.52

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1460571644 source:c:\users\jêdrzej\desktop\codeblocks\grafy macierz incydencji\main.cpp
+	<iostream>
+	<iomanip>
+	<cstdlib>
+

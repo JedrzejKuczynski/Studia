@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1462619530 source:c:\users\jêdrzej\desktop\codeblocks\grafy lista nastêpników\main.cpp
+	<iostream>
+	<iomanip>
+	<cstdlib>
+

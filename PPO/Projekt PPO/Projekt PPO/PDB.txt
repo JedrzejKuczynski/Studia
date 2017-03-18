@@ -1,0 +1,13 @@
+HET    NAG  A 600      14                                             
+HET    NAG  A 601      14                                             
+HET    NAG  C 600      14                                             
+HET    NAG  C 601      14                                             
+HET    NAG  E 600      14                                             
+HET    NAG  E 601      14                                             
+HETNAM  0  NAG N-ACETYL-D-GLUCOSAMINE                                
+TER    3168      ALA A 501 
+TER    3625      SER B  75 
+TER    6851      ALA C 501 
+TER    7308      SER D  75 
+TER   10495      ALA E 501 
+TER   10946      SER F  75 

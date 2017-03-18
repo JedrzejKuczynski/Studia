@@ -1,0 +1,22 @@
+5.1 - mapa: 3 5 2 8 4 6; czas: 0,01 sekundy
+5.2 - mapa: 6 3 4 12 3 8; czas: 0,00 sekundy
+
+8.1 - mapa: 1 6 5 15 2 11 8 3 7; czas: 0,24 sekundy
+8.2 - mapa: 11 3 8 9 7 2 4 8 17; czas: 0,23 sekundy
+
+11.1 - mapa: 8 15 2 5 3 11 8 6 1 7 2 13; czas: 1,38 minuty
+11.2 - mapa: 3 8 11 6 1 5 3 5 18 12 2 7; czas: 1,51 minuty
+
+14.1 - mapa: 3 5 17 8 2 4 4 7 10 6 9 1 3 14 5; czas: 23,18 minuty
+14.2 - mapa: 6 7 6 10 7 2 2 20 13 8 1 3 5 11 21; czas: 45,26 minuty
+
+
+ins-PDP-11a-asc - mapa: 4 6 5 8 3 9 5 2 4 7 8 6; czas: 49,10 sekundy
+ins-PDP-12a-asc - mapa: 4 6 5 8 3 9 5 2 4 7 8 6 6; czas: 2,62 minuty
+ins-PDP-13a-asc - mapa: 4 6 5 8 3 9 5 2 4 7 8 6 6 3; czas: 6,75 minuty
+ins-PDP-14a-asc - mapa: 4 6 5 8 3 9 5 2 4 7 8 6 6 3 5; czas: 47,51 minuty
+
+ins-PDP-11b-asc - mapa: 38 74 27 66 42 15 89 47 35 13 12 54; czas: 0,26 sekundy
+ins-PDP-11b-desc - mapa: 38 74 27 66 42 15 89 47 35 13 12 54; czas: 0,23 sekundy
+ins-PDP-14b-asc - mapa: 54 12 13 35 47 89 15 42 66 27 74 38 25 57 79; czas: 0,01 sekundy
+ins-PDP-14b-desc - mapa: 54 12 13 35 47 89 15 42 66 27 74 38 25 57 79; czas: 0,01 sekundy

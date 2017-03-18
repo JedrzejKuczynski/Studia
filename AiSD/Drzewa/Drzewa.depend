@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1459966742 source:c:\users\jêdrzej\desktop\codeblocks\drzewa\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1457822276 source:c:\users\jêdrzej\desktop\codeblocks\shellsort\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+

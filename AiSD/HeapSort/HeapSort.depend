@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1457910569 source:c:\users\jêdrzej\desktop\codeblocks\heapsort\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+

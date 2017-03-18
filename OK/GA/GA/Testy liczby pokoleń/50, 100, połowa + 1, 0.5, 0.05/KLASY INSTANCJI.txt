@@ -1,0 +1,12 @@
+Klasa I (czasy operacji z zakresu od 1 do 20): ins_in_1, ins_in_5, ins_in_9, ins_in_10, ins_in_11, ins_in_12,
+ins_in_22, ins_in_24, ins_in_29, ins_in_37, ins_in_39, ins_in_40, ins_in_42, ins_in_43, ins_in_45, ins_in_48
+
+
+Klasa II (czasy operacji z zakresu od 1 do 200): ins_int_2, ins_in_4, ins_in_7, ins_in_14, ins_in_16, ins_in_17,
+ins_in_19, ins_in_25, ins_in_27, ins_in_28, ins_in_30, ins_in_31, ins_in_33, ins_in_34, ins_in_35, ins_in_36,
+ins_in_44, ins_in_47, ins_in_49
+
+
+Klasa II (po³owa z zakresu od 1 do 20, po³owa z zakresu od 1 do 200): ins_in_3, ins_in_6, ins_in_8, ins_in_13, ins_in_15,
+ins_in_18, ins_in_20, ins_in_21, ins_in_23, ins_in_26, ins_in_32, ins_in_38, ins_in_41, ins_in_46, ins_in_50
+

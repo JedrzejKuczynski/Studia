@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1457809424 source:c:\users\jêdrzej\desktop\codeblocks\selectionsort\main.cpp
+	<iostream>
+	<algorithm>
+	<ctime>
+

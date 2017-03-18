@@ -1,0 +1,44 @@
+﻿Build started 18-01-2017 19:43:01.
+     1>Project "C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\AKwB zad. III\AKwB zad. III\AKwB zad. III.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\AKwB zad. III.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt "AKwB zad. III.cpp"
+         AKwB zad. III.cpp
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(114): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(115): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(126): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(133): warning C4018: '>': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(152): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(154): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(162): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(169): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(174): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(176): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(184): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(190): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(199): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(211): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(235): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(256): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(272): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(278): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(296): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(300): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(301): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(307): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(317): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(318): warning C4018: '>=': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(321): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(322): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(328): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(342): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(355): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\jędrzej\desktop\programowanie\visualstudio\akwb zad. iii\akwb zad. iii\graph_h.h(361): warning C4018: '<': signed/unsigned mismatch
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\AKwB zad. III\Debug\AKwB zad. III.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\AKwB zad. III\Debug\AKwB zad. III.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\AKwB zad. III\Debug\AKwB zad. III.lib" /MACHINE:X86 "Debug\AKwB zad. III.obj"
+         Debug\stdafx.obj
+         AKwB zad. III.vcxproj -> C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\AKwB zad. III\Debug\AKwB zad. III.exe
+     1>Done Building Project "C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\AKwB zad. III\AKwB zad. III\AKwB zad. III.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.48
