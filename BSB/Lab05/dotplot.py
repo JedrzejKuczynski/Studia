@@ -14,8 +14,8 @@ print()
 for i in range(len(dotplot)):
 	print(seq1[i], " ".join(dotplot[i]))"""
 
-seq1 = "ABRACADABRACADABRA"
-seq2 = "ABRACADABRACADABRA"
+seq1 = input("Prosze podac pierwsza sekwencje (wielkimi literami): ") #"ABRACADABRACADABRA"
+seq2 = input("Prosze podac pierwsza sekwencje (wielkimi literami): ") #"ABRACADABRACADABRA"
 threshold = int(input("Prosze podac wartosc graniczna: "))
 window = int(input("Prosze podac rozmiar okna: "))
 cross = window//2
