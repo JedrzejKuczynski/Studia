@@ -16,8 +16,8 @@ for i in range(len(dotplot)):
 
 seq1 = "ABRACADABRACADABRA"
 seq2 = "ABRACADABRACADABRA"
-threshold = 2
-window = 3
+threshold = int(input("Prosze podac wartosc graniczna: "))
+window = int(input("Prosze podac rozmiar okna: "))
 cross = window//2
 dotplot = [["." for i in range(len(seq2))] for j in range(len(seq1))]
 
