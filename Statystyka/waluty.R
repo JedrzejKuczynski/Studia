@@ -2,58 +2,49 @@ library(gdata)
 
 tab_a = c("DATA","THB", "USD", "AUD", "HKD", "CAD", "NZD", "SGD", "EUR", "HUF", "CHF", "GBP", "UAH", "JPY", "CZK", "DKK", "ISK", "NOK", "SEK", "HRK", "RON", "BGN", "TRY",
 "LTL", "LVL", "ILS", "CLP", "PHP", "MXN", "ZAR", "BRL", "MYR", "RUB", "IDR", "INR", "KRW", "CNY", "XDR", "NUMER", "PEŁNY NUMER")
-tab_b = c("DATA","AFN", "MGA", "PAB", "ETB", "VEF", "BOB", "GHS", "CRC", "SVC", "NIO", "GMD", "MKD", "DZD", "BHD", "IQD", "JOD", "KWD", "LYD", "RSD", "TND", "MAD", "AED", "STD", "BSD",
-"BBD", "BZD", "BND", "FJD", "GYD", "JMD", "LRD", "NAD", "SRD", "TTD", "XCD", "SBD", "ZWL", "VND", "AMD", "CVE", "BIF", "XOF", "XAF", "XPF", "DJF", "GNF", "KMF", "CDF",
-"RWF", "EGP", "GIP", "LBP", "SDG", "SYP", "HTG", "PYG", "ANG", "AWG", "PGK", "LAK", "MWK", "ZMK", "AOA", "MMK", "GEL", "MDL", "ALL", "HNL", "SLL", "SZL", "LSL",
-"AZN", "MZN", "NGN", "ERN", "TWD", "PEN", "MRO", "TOP", "MOP", "ARS", "DOP", "COP", "UYU", "BWP", "GTQ", "IRR", "YER", "QAR", "OMR", "SAR", "KHR", "BYR",
-"MVR", "MUR", "NPR", "PKR", "SCR", "LKR", "KGS", "TJS", "UZS", "KES", "SOS", "TZS", "UGX", "BDT", "WST", "KZT", "MNT", "VUV", "BAM", "NUMER", "PEŁNY NUMER")
 
 input <- function(){
-currency <- readline(prompt ="Prosze wpisac walute: ")
-date <- readline(prompt ="Prosze wpisac rok: ")
+currency <- readline(prompt = "Prosze wpisac walute: ")
+date_b <- readline(prompt = "Od: ")
+date_e <- readline(prompt = "Do: ")
 
-if(is.element(currency, tab_a)){
-  currency_col <- match(currency, tab_a)
-}else{
-  currency_col <- match(currency, tab_b)
-}
-return(c(currency, date, currency_col))
+currency_col <- match(currency, tab_a)
+
+return(c(currency, date_b, date_e, currency_col))
 }
 
 download_data <- function(url_data){
 
-url <- "http://www.nbp.pl/kursy/Archiwum/archiwum_tab_"
+  table_list <- c()
 
-if(is.element(url_data[1], tab_a)){
-  url <- paste(url, "a_", sep = "")
-}else{
-  url <- paste(url, "b_", sep = "")
+for(i in as.numeric(url_data[2]):as.numeric(url_data[3])){
+  
+  url <- "http://www.nbp.pl/kursy/Archiwum/archiwum_tab_a_"
+  table <- NULL
+  url <- paste(url, as.character(i), ".xls", sep = "")
+  table <- read.xls(url)
+  table_list <- c(table_list, list(table))
 }
 
-url <- paste(url, as.character(url_data[2]), ".xls", sep = "")
-table <- read.xls(url)
-return(table)
+return(table_list)
 }
 
 ####################################################################################################
 
 url_data <- input()
-currency_col <- as.numeric(url_data[3])
+currency_col <- as.numeric(url_data[4])
 data <- download_data(url_data)
 currencies <- c()
 dates <- c()
 
-for(i in 1:nrow(data)){
-  dates <- c(dates, as.character(data[i,1]))
-}
-dates <- dates[-1]
+#dates_frame <- data.frame(data[3])
 
-for(i in 1:ncol(data)){
-  currencies <- c(currencies, as.character(data[1,i]))
-}
-currencies <- currencies[-c(1, length(currencies), length(currencies)-1)]
+#for(i in 1:nrow(data.frame(data[3]))){
+#  dates <- c(dates, as.character(dates_frame[i,1]))
+#}
+#dates <- dates[-1]
 
-print(length(tab_a))
-print(length(tab_b))
-print(currency_col)
-print(data[ ,currency_col])
+#for(i in 1:ncol(data[[1]])){
+  #currencies <- c(currencies, as.character(data[1,i]))
+#}
+#currencies <- currencies[-c(1, length(currencies), length(currencies)-1)] # Zobaczymy czy potrzebne
