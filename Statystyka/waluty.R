@@ -1,4 +1,5 @@
 library(gdata)
+library(xlsx)
 
 tab_a = c("DATA","THB", "USD", "AUD", "HKD", "CAD", "NZD", "SGD", "EUR", "HUF", "CHF", "GBP", "UAH", "JPY", "CZK", "DKK", "ISK", "NOK", "SEK", "HRK", "RON", "BGN", "TRY",
 "LTL", "LVL", "ILS", "CLP", "PHP", "MXN", "ZAR", "BRL", "MYR", "RUB", "IDR", "INR", "KRW", "CNY", "XDR", "NUMER", "PEŁNY NUMER")
@@ -37,14 +38,22 @@ data <- download_data(url_data)
 currencies <- c()
 dates <- c()
 
-#dates_frame <- data.frame(data[3])
+print(colnames(data.frame(data[1])))
 
-#for(i in 1:nrow(data.frame(data[3]))){
-#  dates <- c(dates, as.character(dates_frame[i,1]))
+wb <- createWorkbook()
+index <- 1
+
+for(i in as.numeric(url_data[2]):as.numeric(url_data[3])){
+  sheet <- createSheet(wb, sheetName = as.character(i))
+  addDataFrame(data[index], sheet)
+  index <- index + 1
+}
+saveWorkbook(wb, "big_data.xlsx")
+
+#dates_frame <- data.frame(data[1])
+
+#for(i in 1:nrow(data.frame(data[1]))){
+ # dates <- c(dates, as.character(dates_frame[i,1]))
 #}
 #dates <- dates[-1]
-
-#for(i in 1:ncol(data[[1]])){
-  #currencies <- c(currencies, as.character(data[1,i]))
-#}
-#currencies <- currencies[-c(1, length(currencies), length(currencies)-1)] # Zobaczymy czy potrzebne
+#print(dates)
