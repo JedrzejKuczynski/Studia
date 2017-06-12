@@ -49,11 +49,3 @@ for(i in as.numeric(url_data[2]):as.numeric(url_data[3])){
   index <- index + 1
 }
 saveWorkbook(wb, "big_data.xlsx")
-
-dates_frame <- data.frame(data[1])
-
-#for(i in 1:nrow(data.frame(data[1]))){
- # dates <- c(dates, as.character(dates_frame[i,1]))
-#}
-#dates <- dates[-1]
-#print(dates)
