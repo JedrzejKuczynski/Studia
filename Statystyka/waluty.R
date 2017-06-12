@@ -1,20 +1,15 @@
 library(gdata)
 library(xlsx)
 
-tab_a = c("DATA","THB", "USD", "AUD", "HKD", "CAD", "NZD", "SGD", "EUR", "HUF", "CHF", "GBP", "UAH", "JPY", "CZK", "DKK", "ISK", "NOK", "SEK", "HRK", "RON", "BGN", "TRY",
-"LTL", "LVL", "ILS", "CLP", "PHP", "MXN", "ZAR", "BRL", "MYR", "RUB", "IDR", "INR", "KRW", "CNY", "XDR", "NUMER", "PEŁNY NUMER")
-
-input <- function(){
+input <- function(){  # Funkcja odpowiedzialna za informacje podawane przez użytkownika.
 currency <- readline(prompt = "Prosze wpisac walute: ")
 date_b <- readline(prompt = "Od: ")
 date_e <- readline(prompt = "Do: ")
 
-currency_col <- match(currency, tab_a)
-
-return(c(currency, date_b, date_e, currency_col))
+return(c(currency, date_b, date_e))
 }
 
-download_data <- function(url_data){
+download_data <- function(url_data){ # Funkcja odpowiedzialna za ściąganie danych z serisu NBP.
 
   table_list <- c()
 
@@ -32,20 +27,15 @@ return(table_list)
 
 ####################################################################################################
 
-url_data <- input()
-currency_col <- as.numeric(url_data[4])
-data <- download_data(url_data)
-currencies <- c()
-dates <- c()
+url_data <- input() # Uzyskujemy informacje od użytkownika.
+data <- download_data(url_data) # Ściągamy dane z serwisu NBP.
 
-print(colnames(data.frame(data[1])))
-
-wb <- createWorkbook()
+wb <- createWorkbook() # Lokalnie tworzymy nasz plik .xlsx, aby go przeparsować
 index <- 1
 
-for(i in as.numeric(url_data[2]):as.numeric(url_data[3])){
-  sheet <- createSheet(wb, sheetName = as.character(i))
-  addDataFrame(data[index], sheet)
+for(i in as.numeric(url_data[2]):as.numeric(url_data[3])){ # W przedziale dat podanych przez użytkownika
+  sheet <- createSheet(wb, sheetName = as.character(i)) # tworzymy dla każdej z nich oddzielny arkusz
+  addDataFrame(data[index], sheet) # dodajemy do niego odpowiednią ramkę danych
   index <- index + 1
 }
-saveWorkbook(wb, "big_data.xlsx")
+saveWorkbook(wb, "big_data.xlsx") # i zapisujemy cały plik.
