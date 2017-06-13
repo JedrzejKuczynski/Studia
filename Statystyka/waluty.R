@@ -125,13 +125,23 @@ year_e <- year_e[1]
 #saveWorkbook(wb, "big_data.xlsx") # i zapisujemy cały plik.
 
 index_df <- 1
+dates <- c()
+values <- c()
+indices <- c()
 
-for(i in 1:length(data)){
-  print(head(data[i]))
-}
+date_b <- as.POSIXct(url_data[2])
+date_e <- as.POSIXct(url_data[3])
 
 for(i in as.numeric(year_b):as.numeric(year_e)){
   if(i >= 1996 && i < 2000){
+    df <- data[[index_df]]
+    index_dateb <- NULL
+    for(j in 1:nrow(df)){
+      if(df[[j,2]] >= date_b){
+        index_dateb <- j
+        break
+      }
+    }
   }
   index_df <- index_df + 1
 }
