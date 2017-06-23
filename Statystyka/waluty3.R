@@ -1,5 +1,6 @@
 library(readxl)
 library(tseries)
+library(vioplot)
 
 input <- function() {  # Funkcja odpowiedzialna za informacje podawane przez u?ytkownika.
   currency <- readline(prompt = "Prosze wpisac walute: ")
@@ -8,7 +9,7 @@ input <- function() {  # Funkcja odpowiedzialna za informacje podawane przez u?y
   return(c(currency, date_b, date_e))
 }
 
-# url_data <- c("USD", "1996-01-01", "2000-06-01")
+url_data <- c("USD", "1996-01-01", "2000-06-01")
 
 download_data <- function(url_data) { # Funkcja odpowiedzialna za sciaganie danych z serisu NBP.
   
@@ -82,7 +83,7 @@ for(i in 1:n) {
   w <- tmp[idv[i]] # Zmienna przechowujaca cala kolumne wartosci z ramki
   q <- cbind(d, w); names(q) <- nam # Laczymy nasze kolumny w jedna ramke, a kolumnom nadajemy odpowiednie nazwy
   dane <- rbind(dane, q) # Laczymy nasze wyciagnete kolumny Data-Waluta w jedna ramke
-                         # (tj. ramke zawierajaca dany przedzial dat)
+                         # (tj. ramke zawierajaca dany przedzial 'calych' lat)
 }
 
 tmp <- dane$Data
@@ -105,5 +106,12 @@ for(i in 1:length(tmp)){ # To jest daty poczatkowej i koncowej
 dane <- dane[c(idb:ide),] # Ograniczamy ramke
 
 names(dane) <- nam
+cat("Wielkosc proby: ", length(dane$USD))
+cat("Srednia geometryczna: ", exp(mean(log(dane$USD))))
+cat("Srednia harmoniczna: ", 1/mean(1/dane$USD))
 summary(dane)
 plot(dane, type = "l")
+plot(dane)
+plot(dane, type = "h")
+boxplot(dane$USD, main = url_data[1], horizontal = TRUE)
+vioplot(dane$USD, col = "yellow", names = url_data[1], horizontal = TRUE)
