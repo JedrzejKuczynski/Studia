@@ -122,17 +122,21 @@ data <- download_data(url_data) # Sciagamy dane z serwisu NBP.
 
 idd <- sapply(data, function(x) grep("Data", names(x))) # Przechodzimy po nazwach kolumn naszych danych i szukamy indeksow kolumn zawierajacych daty
 idv <- sapply(data, function(x) grep(url_data[1], names(x))) # To samo, tylko ze z interesujaca nas waluta
+idn <- !(sapply(idv, length)) # Sprawdzamy czy waluta istnieje
+idv[idn] <- NA # Jezeli nie istniala to przypisujemy wartosci NA odpowiednim miejscom w wektorze
 n <- length(idd)
 
 nam <- c("Data", url_data[1]) # Wektor nazw (Data i odpowiedni trzyliterowy skrót waluty)
 dane <- NULL
 for(i in 1:n){
   tmp <- data[[i]] # Zmienna pomocnicza przechowujaca dana ramke
+  if(!(is.na(idv[i]))){ # Jezeli waluta istnieje:
   d <- tmp[as.numeric(idd[i])] # Zmienna przechowujaca cala kolumne dat z ramki
   w <- tmp[as.numeric(idv[i])] # Zmienna przechowujaca cala kolumne wartosci z ramki
   q <- cbind(d, w); names(q) <- nam # Laczymy nasze kolumny w jedna ramke, a kolumnom nadajemy odpowiednie nazwy
   dane <- rbind(dane, q) # Laczymy nasze wyciagnete kolumny Data-Waluta w jedna ramke
                          # (tj. ramke zawierajaca dany przedzial 'calych' lat)
+  }
 }
 
 tmp <- dane$Data
