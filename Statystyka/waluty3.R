@@ -9,7 +9,7 @@ input <- function() {  # Funkcja odpowiedzialna za informacje podawane przez uzy
   return(c(currency, date_b, date_e))
 }
 
-# url_data <- c("USD", "1996-01-01", "2000-06-01")
+url_data <- c("USD", "1996-01-01", "2017-03-12")
 
 download_data <- function(url_data) { # Funkcja odpowiedzialna za sciaganie danych z serisu NBP.
   
@@ -36,31 +36,79 @@ download_data <- function(url_data) { # Funkcja odpowiedzialna za sciaganie dany
       names(table)[1] <- "Data"
     } else if(yi == 2004){
       table <- read_excel(destfile, col_types = col_types)
+      table <- data.frame(head(table, -4))
+      names(table)[1] <- "Data"
     } else if(yi == 2005) {
-      col_t <- col_types
+      col_t <- c(col_types, "text")
       table <- read_excel(destfile, col_types = col_t)
-    } else if(yi %in% 2009:2010) {
+      table <- data.frame(head(table, -5))
+      table <- data.frame(tail(table, -1))
+      names(table)[1] <- "Data"
+    } else if(yi == 2006) {
+      col_t <- c(col_types, "text")
+      table <- read_excel(destfile, col_types = col_t)
+      table <- data.frame(tail(table, -1))
+      names(table)[1] <- "Data"
+    } else if(yi == 2007) {
+      col_t <- c(col_types, rep("text", 15))
+      table <- read_excel(destfile, col_types = col_t)
+      table <- data.frame(tail(table, -1))
+      names(table)[1] <- "Data"
+    } else if(yi == 2008) {
+      table <- read_excel(destfile)
+      table <- data.frame(head(table, -5))
+      table <- data.frame(tail(table, -2))
+      names(table)[1] <- "Data"
+    } else if(yi == 2009) {
       col_t <- c(col_types, rep("text", 12))
       col_t[37] <- "numeric"
       table <- read_excel(destfile, col_types = col_t)
+      table <- data.frame(head(table, -5))
+      table <- data.frame(tail(table, -2))
+      names(table)[1] <- "Data"
+    } else if(yi == 2010) {
+      col_t <- c(col_types, rep("text", 12))
+      col_t[37] <- "numeric"
+      table <- read_excel(destfile, col_types = col_t)
+      table <- data.frame(head(table, -5))
+      table <- data.frame(tail(table, -1))
+      names(table)[1] <- "Data"
     } else if(yi == 2011) {
       col_t <- c(col_types, rep("text", 14))
       col_t[39] <- "numeric"
       table <- read_excel(destfile, col_types = col_t)
-    } else if(yi == 2013) {
+      table <- data.frame(head(table, -5))
+      table <- data.frame(tail(table, -1))
+      names(table)[1] <- "Data"
+    }else if(yi == 2012) {
+      table <- read_excel(destfile)
+      table <- data.frame(tail(table, -1))
+      names(table)[1] <- "Data"
+    }else if(yi == 2013) {
       col_t <- c(col_types, rep("text", 13))
       col_t[39] <- "numeric"
-      table <- read_excel(destfile, col_types = col_t) 
+      table <- read_excel(destfile, col_types = col_t)
+      table <- data.frame(head(table, -4))
+      table <- data.frame(tail(table, -1))
+      names(table)[1] <- "Data"
     } else if(yi == 2014) {
       col_t <- c(col_types, rep("text", 12))
       col_t[38] <- "numeric"
       table <- read_excel(destfile, col_types = col_t)
+      table <- data.frame(head(table, -4))
+      table <- data.frame(tail(table, -1))
+      names(table)[1] <- "Data"
     } else if(yi > 2014) {
       col_t <- c(col_types, rep("text", 11))
       col_t[37] <- "numeric"
       table <- read_excel(destfile, col_types = col_t)
-    } else table <- read_excel(destfile)
-    
+      table <- data.frame(head(table, -4))
+      table <- data.frame(tail(table, -1))
+      names(table)[1] <- "Data"
+    } else {
+      table <- read_excel(destfile)
+      names(table)[1] <- "Data"
+    }
     table_list[[i]] <- table
   }
   return(table_list)
@@ -71,16 +119,17 @@ download_data <- function(url_data) { # Funkcja odpowiedzialna za sciaganie dany
 url_data <- input() # Uzyskujemy informacje od uzytkownika.
 data <- download_data(url_data) # Sciagamy dane z serwisu NBP.
 
+
 idd <- sapply(data, function(x) grep("Data", names(x))) # Przechodzimy po nazwach kolumn naszych danych i szukamy indeksow kolumn zawierajacych daty
 idv <- sapply(data, function(x) grep(url_data[1], names(x))) # To samo, tylko ze z interesujaca nas waluta
 n <- length(idd)
 
 nam <- c("Data", url_data[1]) # Wektor nazw (Data i odpowiedni trzyliterowy skrót waluty)
 dane <- NULL
-for(i in 1:n) {
+for(i in 1:n){
   tmp <- data[[i]] # Zmienna pomocnicza przechowujaca dana ramke
-  d <- tmp[idd[i]] # Zmienna przechowujaca cala kolumne dat z ramki
-  w <- tmp[idv[i]] # Zmienna przechowujaca cala kolumne wartosci z ramki
+  d <- tmp[as.numeric(idd[i])] # Zmienna przechowujaca cala kolumne dat z ramki
+  w <- tmp[as.numeric(idv[i])] # Zmienna przechowujaca cala kolumne wartosci z ramki
   q <- cbind(d, w); names(q) <- nam # Laczymy nasze kolumny w jedna ramke, a kolumnom nadajemy odpowiednie nazwy
   dane <- rbind(dane, q) # Laczymy nasze wyciagnete kolumny Data-Waluta w jedna ramke
                          # (tj. ramke zawierajaca dany przedzial 'calych' lat)
@@ -91,35 +140,36 @@ date_b <- as.POSIXlt(url_data[2])
 date_e <- as.POSIXlt(url_data[3])
 
 for(i in 1:length(tmp)){ # Wyszukujemy indeksy interesujacych nas dat
-  if(tmp[i] >= date_b){
+  if(as.POSIXlt(tmp[i]) >= date_b){
     idb <- i
     break
   }
 }
 
 for(i in 1:length(tmp)){ # To jest daty poczatkowej i koncowej
-  if(tmp[i] >= date_e){
+  if(as.POSIXlt(tmp[i]) >= date_e){
     ide <- i
     break
   }
 }
 dane <- dane[c(idb:ide),] # Ograniczamy ramke
+dane_obl <- as.numeric(dane[,2])
 
 # Liczymy odpowiednie parametry i rysujemy wykresy
 
 names(dane) <- nam
-cat("Wielkosc proby: ", length(dane[,2]))
-cat("Srednia geometryczna: ", exp(mean(log(dane[,2]))))
-cat("Srednia harmoniczna: ", 1/mean(1/dane[,2]))
-cat("Wariancja: ", var(dane[,2]))
-cat("Odchylenie standardowe: ", sd(dane[,2]))
-cat("Przedzial zmiennosci: (", round(mean(dane[,2]) - sd(dane[,2]), 5), ";", round(mean(dane[,2]) + sd(dane[,2]), 5), ")", sep = "")
-cat("Moda: ", as.numeric(names(sort(-table(dane[,2]))))[1])
-cat("Kurtoza: ", kurtosis(dane[,2]))
-cat("Skosnosc: ", skewness(dane[,2]))
+cat("Wielkosc proby: ", length(dane_obl))
+cat("Srednia geometryczna: ", exp(mean(log(dane_obl))))
+cat("Srednia harmoniczna: ", 1/mean(1/dane_obl))
+cat("Wariancja: ", var(dane_obl))
+cat("Odchylenie standardowe: ", sd(dane_obl))
+cat("Przedzial zmiennosci: (", round(mean(dane_obl) - sd(dane_obl), 5), ";", round(mean(dane_obl) + sd(dane_obl), 5), ")", sep = "")
+cat("Moda: ", as.numeric(names(sort(-table(dane_obl))))[1])
+cat("Kurtoza: ", kurtosis(dane_obl))
+cat("Skosnosc: ", skewness(dane_obl))
 summary(dane)
 plot(dane, type = "l", main = "Kurs waluty")
 plot(dane, main = "Kurs waluty")
-hist(dane[,2], main = nam[2], xlab = "Kurs")
-boxplot(dane[,2], main = nam[2], horizontal = TRUE, xlab = "Kurs")
-vioplot(dane[,2], col = "yellow", names = nam[2], horizontal = TRUE)
+hist(dane_obl, main = nam[2], xlab = "Kurs")
+boxplot(dane_obl, main = nam[2], horizontal = TRUE, xlab = "Kurs")
+vioplot(dane_obl, col = "yellow", names = nam[2], horizontal = TRUE)
