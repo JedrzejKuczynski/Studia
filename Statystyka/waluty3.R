@@ -1,16 +1,15 @@
 library(readxl)
-library(tseries)
 library(vioplot)
 library(e1071)
 
-input <- function() {  # Funkcja odpowiedzialna za informacje podawane przez u?ytkownika.
+input <- function() {  # Funkcja odpowiedzialna za informacje podawane przez uzytkownika.
   currency <- readline(prompt = "Prosze wpisac walute: ")
   date_b <- readline(prompt = "Od (prosze wpisac w formacie YYYY-MM-DD): ")
   date_e <- readline(prompt = "Do prosze wpisac w formacie YYYY-MM-DD): ")
   return(c(currency, date_b, date_e))
 }
 
-url_data <- c("USD", "1996-01-01", "2000-06-01")
+# url_data <- c("USD", "1996-01-01", "2000-06-01")
 
 download_data <- function(url_data) { # Funkcja odpowiedzialna za sciaganie danych z serisu NBP.
   
@@ -20,7 +19,7 @@ download_data <- function(url_data) { # Funkcja odpowiedzialna za sciaganie dany
   year_b <- 1900 + as.POSIXlt(url_data[2])$year # Definiujemy zakres lat sciaganych plików
   year_e <- 1900 + as.POSIXlt(url_data[3])$year # (kolumna year klasy POSIXlt zawiera liczbę lat od 1900 roku)
   y <- year_b:year_e # Wektor zawierający nasze lata
-  n <- length(y) # Zmienna pomocnicza zawierajaca długosc naszego wektora
+  n <- length(y) # Zmienna pomocnicza zawierajaca dlugosc naszego wektora
   table_list <- vector("list", n) # Definicja listy ramek
   names(table_list) <- y # Ustalamy nazwy dla naszych poszczegolnych ramek
   
@@ -69,10 +68,10 @@ download_data <- function(url_data) { # Funkcja odpowiedzialna za sciaganie dany
 
 ###############################################################################
 
-# url_data <- input() # Uzyskujemy informacje od uzytkownika.
+url_data <- input() # Uzyskujemy informacje od uzytkownika.
 data <- download_data(url_data) # Sciagamy dane z serwisu NBP.
 
-idd <- sapply(data, function(x) grep("Data", names(x))) # Przechodzimy po naszych nazwach kolumn naszych danych i szukamy indeksow kolumn zawierajacych daty
+idd <- sapply(data, function(x) grep("Data", names(x))) # Przechodzimy po nazwach kolumn naszych danych i szukamy indeksow kolumn zawierajacych daty
 idv <- sapply(data, function(x) grep(url_data[1], names(x))) # To samo, tylko ze z interesujaca nas waluta
 n <- length(idd)
 
