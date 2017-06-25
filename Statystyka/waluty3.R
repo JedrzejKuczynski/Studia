@@ -1,6 +1,7 @@
 library(readxl)
 library(tseries)
 library(vioplot)
+library(e1071)
 
 input <- function() {  # Funkcja odpowiedzialna za informacje podawane przez u?ytkownika.
   currency <- readline(prompt = "Prosze wpisac walute: ")
@@ -90,7 +91,7 @@ tmp <- dane$Data
 date_b <- as.POSIXlt(url_data[2])
 date_e <- as.POSIXlt(url_data[3])
 
-for(i in 1:length(tmp)){ # Wyszukujemy indeksow interesujacych nas dat
+for(i in 1:length(tmp)){ # Wyszukujemy indeksy interesujacych nas dat
   if(tmp[i] >= date_b){
     idb <- i
     break
@@ -105,13 +106,21 @@ for(i in 1:length(tmp)){ # To jest daty poczatkowej i koncowej
 }
 dane <- dane[c(idb:ide),] # Ograniczamy ramke
 
+# Liczymy odpowiednie parametry i rysujemy wykresy
+
 names(dane) <- nam
-cat("Wielkosc proby: ", length(dane$USD))
-cat("Srednia geometryczna: ", exp(mean(log(dane$USD))))
-cat("Srednia harmoniczna: ", 1/mean(1/dane$USD))
+cat("Wielkosc proby: ", length(dane[,2]))
+cat("Srednia geometryczna: ", exp(mean(log(dane[,2]))))
+cat("Srednia harmoniczna: ", 1/mean(1/dane[,2]))
+cat("Wariancja: ", var(dane[,2]))
+cat("Odchylenie standardowe: ", sd(dane[,2]))
+cat("Przedzial zmiennosci: (", round(mean(dane[,2]) - sd(dane[,2]), 5), ";", round(mean(dane[,2]) + sd(dane[,2]), 5), ")", sep = "")
+cat("Moda: ", as.numeric(names(sort(-table(dane[,2]))))[1])
+cat("Kurtoza: ", kurtosis(dane[,2]))
+cat("Skosnosc: ", skewness(dane[,2]))
 summary(dane)
-plot(dane, type = "l")
-plot(dane)
-plot(dane, type = "h")
-boxplot(dane$USD, main = url_data[1], horizontal = TRUE)
-vioplot(dane$USD, col = "yellow", names = url_data[1], horizontal = TRUE)
+plot(dane, type = "l", main = "Kurs waluty")
+plot(dane, main = "Kurs waluty")
+hist(dane[,2], main = nam[2], xlab = "Kurs")
+boxplot(dane[,2], main = nam[2], horizontal = TRUE, xlab = "Kurs")
+vioplot(dane[,2], col = "yellow", names = nam[2], horizontal = TRUE)
