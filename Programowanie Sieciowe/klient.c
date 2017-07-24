@@ -34,10 +34,14 @@ int main ()
 
 	int sock = socket (AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
-        sizeof(struct sockaddr_in);
-	sendto(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, a);
-	recvfrom(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, &a);
-        printf("%s", buf);
+    int a = sizeof(struct sockaddr_in);
+
+    while(1){
+
+		sendto(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, a);
+		recvfrom(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, &a);
+    	printf("%s", buf);
+	}
 
 	close(sock);
 	return(0);
