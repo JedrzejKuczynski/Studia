@@ -36,7 +36,30 @@ int main ()
 
     int a = sizeof(struct sockaddr_in);
 
+    int i = 0;
+    size_t size = BUFSIZE;
+	char* message = (char*)malloc(size * sizeof(char));
     while(1){
+
+    	if(i == 0){
+    		i++;
+    		int choice;
+    		printf("Zalogowanie na serwer: 1\nWylogowanie: \"__exit__\"\n");
+    		scanf("%d", &choice);
+
+    		if(choice == 1){
+    			char name[21];
+    			printf("Prosze wpisac nazwe uzytkownika w formie \'@nazwa\'(maksymalnie 20 znakow): ");
+    			scanf("%s", name);
+    			strcpy(buf, name);
+    		}else{
+    			exit(0);
+    		}
+    	}else{
+			printf("\nWiadomosc: ");
+			getline(&message, &size, stdin);
+			strcpy(buf, message);
+	}
 
 		sendto(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, a);
 		recvfrom(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, &a);
