@@ -38,20 +38,15 @@ int main ()
 
     size_t size = BUFSIZE;
 	char* message = (char*)malloc(size * sizeof(char));
-	printf("Zalogowanie na serwer: \"__login__\"\nWylogowanie: \"__exit__\"\n");
-	
+	printf("Zalogowanie na serwer: \"__login__ nazwa_uzytkownika\"\nWylogowanie: \"__logout__\"\nLista uzytkownikow: \"__show__\"\n");
+
     while(1){
 
-    	printf("\n>");
+    	printf("\n> ");
 		getline(&message, &size, stdin);
 		strcpy(buf, message);
 
-    	if(strcmp(buf, "__login__\n") == 0){
-    		char name[21];
-    		printf("Prosze wpisac nazwe uzytkownika w formie \'@nazwa\'(maksymalnie 20 znakow): ");
-    		scanf("%s", name);
-    		strcpy(buf, name);
-    	}else if(strcmp(buf, "__exit__\n") == 0){
+		if(strcmp(buf, "__exit__\n") == 0){
     		sendto(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, a);
 			recvfrom(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, &a);
     		printf("%s", buf);
