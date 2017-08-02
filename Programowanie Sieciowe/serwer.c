@@ -81,7 +81,6 @@ int main(int argc, char* argv[]){
 
    struct user* user_addr = (struct user*)malloc(USERS_CAP * sizeof(struct user*));
    memset(user_addr, 0, sizeof(user_addr));
-   int i = 0;
 
    /* address structure */
    memset(&myaddr, 0, sizeof(struct sockaddr_in));
@@ -102,18 +101,18 @@ int main(int argc, char* argv[]){
 
 	   if(strncmp(buf, "__login__ ", 10) == 0){
 	   	char* name = strdup(buf);
-	   	name = name+10;
+	   	name = name + 10;
 	   	name[strlen(name)-1] = '\0';
 	   	if(user_check(user_names, name)){
-	   		user_names[i] = name;
+	   		user_names[users] = name;
 	   		struct user new_user;
 	   		new_user.name = name;
 	   		new_user.address = other_addr;
-	   		user_addr[i] = new_user;
+	   		user_addr[users] = new_user;
+	   		printf("%s\t%s\n", user_addr[users].name, inet_ntoa(user_addr[users].address.sin_addr));
 	   		printf("Dodawanie uzytkownika %s zakonczylo sie powodzeniem!\n", name);
-	   		i++;
 	   		users++;
-	   		strcpy(buf, "Witamy na serwerze! Schemat wiadomosci: /nazwa_uzytkownika wiadomosc\n");
+	   		strcpy(buf, "Witamy na serwerze! Schemat wiadomosci: nazwa_uzytkownika: wiadomosc\n");
 	   }else{
 	   	strcpy(buf, "Nazwa zajeta!\n");
 	   }
@@ -121,14 +120,23 @@ int main(int argc, char* argv[]){
     	int index = find_user(other_addr, user_addr);
     	char* name = user_names[index];
     	delete_user(user_names, user_addr, index);
-    	i--;
     	users--;
     	printf("Usuwanie uzytkownika %s z listy zakonczylo sie powodzeniem!\n", name);
     	strcpy(buf, "Dziekujemy za odwiedziny! Do zobaczenia!\n");
     }else if(strcmp(buf, "__show__\n") == 0){
     	show_users(user_names, buf);
-    }
+    }else{
+    	char* buf_cpy = strdup(buf);
+    	char* name = strtok(buf_cpy, ":");
+    	char* rest = strtok(NULL, "");
 
+    	int i = 0;
+    	for(i; i < users; i++)
+    		if(strcmp(user_addr[i].name, name) == 0)
+    			other_addr = user_addr[i].address;
+
+    	sprintf(buf, "Od %s:%s", name, rest);
+    }
     sendto(sock, buf, sizeof(buf), 0, (struct sockaddr*)&other_addr, a);
 }
 

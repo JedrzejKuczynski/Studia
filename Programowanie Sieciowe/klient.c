@@ -21,10 +21,10 @@ int main ()
 	struct sockaddr_in myaddr, serv_addr;
 
 	// struktura adresu własnego
-	memset(&myaddr, 0, sizeof(struct sockaddr_in));
+	/*memset(&myaddr, 0, sizeof(struct sockaddr_in));
 	myaddr.sin_family = AF_INET;
 	myaddr.sin_addr.s_addr = INADDR_ANY; // jakikolwiek adres
-	myaddr.sin_port = htons(service_port);
+	myaddr.sin_port = htons(service_port);*/
 
 	// struktura adresu serwera
 	memset(&serv_addr, 0, sizeof(struct sockaddr_in));
@@ -42,16 +42,16 @@ int main ()
 
     while(1){
 
-    	printf("\n> ");
-		getline(&message, &size, stdin);
-		strcpy(buf, message);
-
-		if(strcmp(buf, "__exit__\n") == 0){
+    	if(strcmp(buf, "__exit__\n") == 0){
     		sendto(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, a);
 			recvfrom(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, &a);
     		printf("%s", buf);
     		exit(0);
     	}
+
+    	printf("\n> ");
+		getline(&message, &size, stdin);
+		strcpy(buf, message);
 		sendto(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, a);
 		recvfrom(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, &a);
     	printf("%s", buf);
