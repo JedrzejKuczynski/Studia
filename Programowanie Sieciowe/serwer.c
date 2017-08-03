@@ -66,6 +66,7 @@ void show_users(char** user_names, char* buf){
 		strcat(buf, user_names[i]);
 		strcat(buf, ", ");
 	}
+	strcat(buf, "\n");
 }
 
 int main(int argc, char* argv[]){
@@ -89,7 +90,7 @@ int main(int argc, char* argv[]){
    myaddr.sin_port = htons(SERVER_PORT);
 
    /* create a socket */
-   int sock = socket (AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+   int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
    /* bind a name to a socket */
    bind(sock, (struct sockaddr*)&myaddr, sizeof(struct sockaddr_in));
@@ -109,10 +110,10 @@ int main(int argc, char* argv[]){
 	   		new_user.name = name;
 	   		new_user.address = other_addr;
 	   		user_addr[users] = new_user;
-	   		printf("%s\t%s\n", user_addr[users].name, inet_ntoa(user_addr[users].address.sin_addr));
+	   		//printf("%s\t%s\n", user_addr[users].name, inet_ntoa(user_addr[users].address.sin_addr));
 	   		printf("Dodawanie uzytkownika %s zakonczylo sie powodzeniem!\n", name);
 	   		users++;
-	   		strcpy(buf, "Witamy na serwerze! Schemat wiadomosci: nazwa_uzytkownika: wiadomosc\n");
+	   		strcpy(buf, "Witamy na serwerze! Schemat wiadomosci: /nazwa_uzytkownika wiadomosc\n");
 	   }else{
 	   	strcpy(buf, "Nazwa zajeta!\n");
 	   }
@@ -126,16 +127,24 @@ int main(int argc, char* argv[]){
     }else if(strcmp(buf, "__show__\n") == 0){
     	show_users(user_names, buf);
     }else{
+    	char* name_src;
+    	int i = 0;
+
+    	for(i; i < users; i++)
+    		if(user_addr[i].address.sin_addr.s_addr == other_addr.sin_addr.s_addr)
+    			name_src = user_addr[i].name;
+
     	char* buf_cpy = strdup(buf);
-    	char* name = strtok(buf_cpy, ":");
+    	char* name_dest = strtok(buf_cpy, " ");
+    	name_dest = name_dest + 1;
     	char* rest = strtok(NULL, "");
 
-    	int i = 0;
+    	i = 0;
     	for(i; i < users; i++)
-    		if(strcmp(user_addr[i].name, name) == 0)
+    		if(strcmp(user_addr[i].name, name_dest) == 0)
     			other_addr = user_addr[i].address;
 
-    	sprintf(buf, "Od %s:%s", name, rest);
+    	sprintf(buf, "Od %s: %s\n", name_src, rest);
     }
     sendto(sock, buf, sizeof(buf), 0, (struct sockaddr*)&other_addr, a);
 }

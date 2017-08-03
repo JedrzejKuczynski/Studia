@@ -18,13 +18,7 @@ char buf[BUFSIZE];
 int main ()
 {
 
-	struct sockaddr_in myaddr, serv_addr;
-
-	// struktura adresu własnego
-	/*memset(&myaddr, 0, sizeof(struct sockaddr_in));
-	myaddr.sin_family = AF_INET;
-	myaddr.sin_addr.s_addr = INADDR_ANY; // jakikolwiek adres
-	myaddr.sin_port = htons(service_port);*/
+	struct sockaddr_in serv_addr;
 
 	// struktura adresu serwera
 	memset(&serv_addr, 0, sizeof(struct sockaddr_in));
@@ -32,29 +26,29 @@ int main ()
 	serv_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 	serv_addr.sin_port = htons(service_port);
 
-	int sock = socket (AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
     int a = sizeof(struct sockaddr_in);
 
     size_t size = BUFSIZE;
 	char* message = (char*)malloc(size * sizeof(char));
-	printf("Zalogowanie na serwer: \"__login__ nazwa_uzytkownika\"\nWylogowanie: \"__logout__\"\nLista uzytkownikow: \"__show__\"\n");
+	printf("Zalogowanie na serwer: \"__login__ nazwa_uzytkownika\"\nWylogowanie: \"__logout__\"\nLista uzytkownikow: \"__show__\"\n\n");
 
-    while(1){
+	int forking = fork();
 
-    	if(strcmp(buf, "__exit__\n") == 0){
-    		sendto(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, a);
+	if(forking < 0)
+		printf("Fork error!\n");
+	else if(forking == 0){
+		while(1){
 			recvfrom(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, &a);
-    		printf("%s", buf);
-    		exit(0);
-    	}
-
-    	printf("\n> ");
-		getline(&message, &size, stdin);
-		strcpy(buf, message);
-		sendto(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, a);
-		recvfrom(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, &a);
-    	printf("%s", buf);
+			printf("\n%s\n", buf);
+		}
+	}else{
+    	while(1){
+			getline(&message, &size, stdin);
+			strcpy(buf, message);
+			sendto(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, a);
+		}
 	}
 
 	close(sock);
