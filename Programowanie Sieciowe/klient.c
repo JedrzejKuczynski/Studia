@@ -10,23 +10,35 @@
 
 #define BUFSIZE 10000
 
-char *server = "127.0.0.1";	/* adres IP pętli zwrotnej */
-short service_port = 1234;	/* port usługi daytime */
-
 char buf[BUFSIZE];
 
-int main ()
-{
+int main(int argc, char* argv[]){
 
 	struct sockaddr_in serv_addr;
+
+	if(argc < 3){
+		printf("Podano za malo parametrow!\n");
+		exit(0);
+	}
+	else if(argc > 3){
+		printf("Podano za duzo parametrow\n");
+		exit(0);
+	}
+
+	printf("%s\n", argv[1]);
 
 	// struktura adresu serwera
 	memset(&serv_addr, 0, sizeof(struct sockaddr_in));
 	serv_addr.sin_family = AF_INET;
-	serv_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
-	serv_addr.sin_port = htons(service_port);
+	serv_addr.sin_addr.s_addr = inet_addr(argv[1]);
+	serv_addr.sin_port = htons(atoi(argv[2]));
 
 	int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+
+	if(sock == -1){
+		printf("Nie udalo sie utworzyc socketa!\n");
+		exit(0);
+	}
 
     int a = sizeof(struct sockaddr_in);
 
@@ -36,8 +48,10 @@ int main ()
 
 	int forking = fork();
 
-	if(forking < 0)
-		printf("Fork error!\n");
+	if(forking == -1){
+		printf("Blad podczas forka!\n");
+		exit(0);
+	}
 	else if(forking == 0){
 		while(1){
 			recvfrom(sock, buf, BUFSIZE, 0, (struct sockaddr*)&serv_addr, &a);

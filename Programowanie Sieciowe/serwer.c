@@ -11,7 +11,6 @@
 #include <arpa/inet.h>
 #include <time.h>
 
-#define SERVER_PORT 1234
 #define BUFSIZE 10000
 #define USERS_CAP 100
 int users = 0;
@@ -71,6 +70,14 @@ void show_users(char** user_names, char* buf){
 
 int main(int argc, char* argv[]){
 
+	if(argc < 2){
+		printf("Podano za malo parametrow!\n");
+		exit(0);
+	}else if(argc > 2){
+		printf("Podano za duzo parametrow!\n");
+		exit(0);
+	}
+
    struct sockaddr_in myaddr, other_addr;
    char* user_names[USERS_CAP];
 
@@ -87,13 +94,21 @@ int main(int argc, char* argv[]){
    memset(&myaddr, 0, sizeof(struct sockaddr_in));
    myaddr.sin_family = AF_INET;
    myaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-   myaddr.sin_port = htons(SERVER_PORT);
+   myaddr.sin_port = htons(atoi(argv[1]));
 
    /* create a socket */
    int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
+   if(sock == -1){
+   	printf("Nie udalo sie utworzyc socketa!\n");
+	exit(0);
+   }
+
    /* bind a name to a socket */
-   bind(sock, (struct sockaddr*)&myaddr, sizeof(struct sockaddr_in));
+   if(bind(sock, (struct sockaddr*)&myaddr, sizeof(struct sockaddr_in)) == -1){
+   	printf("Nie udalo sie zbindowac socketa!\n");
+   	exit(0);
+   }
 
    while(1){
 
