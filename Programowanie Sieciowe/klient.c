@@ -25,8 +25,6 @@ int main(int argc, char* argv[]){
 		exit(0);
 	}
 
-	printf("%s\n", argv[1]);
-
 	// struktura adresu serwera
 	memset(&serv_addr, 0, sizeof(struct sockaddr_in));
 	serv_addr.sin_family = AF_INET;

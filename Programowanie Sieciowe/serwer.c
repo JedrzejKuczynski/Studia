@@ -149,6 +149,8 @@ int main(int argc, char* argv[]){
     		if(user_addr[i].address.sin_addr.s_addr == other_addr.sin_addr.s_addr)
     			name_src = user_addr[i].name;
 
+    	printf("%s\n", name_src);
+
     	char* buf_cpy = strdup(buf);
     	char* name_dest = strtok(buf_cpy, " ");
     	name_dest = name_dest + 1;
