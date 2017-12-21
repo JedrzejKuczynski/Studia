@@ -87,7 +87,7 @@ int main(int argc, char* argv[]){
    for(int i = 0; i < USERS_CAP; i++)
    		user_names[i] = "";
 
-   struct user* user_addr = (struct user*)malloc(USERS_CAP * sizeof(struct user*));
+   struct user* user_addr = (struct user*)malloc(USERS_CAP * sizeof(struct user));
    memset(user_addr, 0, sizeof(user_addr));
 
    /* address structure */
@@ -149,7 +149,7 @@ int main(int argc, char* argv[]){
     		if(user_addr[i].address.sin_addr.s_addr == other_addr.sin_addr.s_addr)
     			name_src = user_addr[i].name;
 
-    	printf("%s\n", name_src);
+    	//printf("%s\n", name_src);
 
     	char* buf_cpy = strdup(buf);
     	char* name_dest = strtok(buf_cpy, " ");
