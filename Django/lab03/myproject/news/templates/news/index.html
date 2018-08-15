@@ -1,0 +1,41 @@
+{% extends "myapp/base.html" %}
+{% block nav-item-news %}active{% endblock %}
+{% block title %}News{% endblock %}
+{% block content %}
+    <h1>News</h1>
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    {% for group, value in sources %}
+    <div class="btn-group mr-2" role="group" aria-label="{{ group }}">
+    {% for val in value %}
+    {% if selected == val %}
+        <button type="button" class="btn btn-secondary" disabled>{{ val|upper }}</button>
+    {% else %}
+    <a class="btn btn-secondary" href="{% url 'news:index' val %}">{{ val|upper }}</a>
+    {% endif %}
+    {% endfor %}
+    </div>
+    {% endfor %}
+    </div>
+    <br><br>
+    {% if newsapi.status == "ok" %}
+    	<div class="card-columns">
+    	{% for article in newsapi.articles %}
+  			<div class="card">
+    			<img class="card-img-top" src="{{ article.urlToImage }}" alt="{{ article.title|slugify }}">
+    			<div class="card-body">
+     			  <h4 class="card-title"><a target="_blank" href="{{ article.url }}">{{ article.title }}</a></h4>
+      			  <p class="card-text">{{ article.description }}</p>
+      			</div>
+      			<div class="card-footer">
+     			  <small class="text-muted">{{ article.publishedAt }}</small>
+    			</div>
+    		</div>
+    	{% endfor %}
+    	</div>
+      {% else %}
+      <div class="alert alert-info" role="alert">
+        Sorry, no news were found. Try again later.
+      </div>
+    {% endif %}
+
+{% endblock %}

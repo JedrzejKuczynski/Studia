@@ -1,0 +1,50 @@
+{% extends "myapp/base.html" %}
+{% block nav-item-tools %}active{% endblock %}
+{% block title %}Seq Content{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Sequence Content</h1>
+
+      {% if  not results %}
+
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Calculate</button>
+      </form>
+
+      {% else %}
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Letter</th>
+            <th scope="col">Number of occurrences</th>
+            <th scope="col">%</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+        {% for key, value in results.items %}
+          <tr>
+            <th scope="row">{{ forloop.counter}}</th>
+            <td>{{ key }}</td>
+            <td>{{ value.0 }}</td>
+            <td>{{ value.1 }}</td>
+          </tr>
+
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+        {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+

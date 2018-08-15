@@ -1,0 +1,34 @@
+{% extends "myapp/base.html" %}
+{% block nav-item-about %}active{% endblock %}
+{% block title %}About Me{% endblock %}
+{% block content %}
+<h1>ABOUT ME. I'M AWESOME</h1>
+{% if lucky_number == unlucky_number %}
+<p> You are weird!</p>
+{% else %}
+<p>Lucky: {{ lucky_number }}	Unlucky: {{ unlucky_number}}
+<p>
+  {% endif %}
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Seasons</th>
+    <th>Genre</th>
+    <th>Year</th>
+    <th>Ongoing</th>
+  </tr>
+  {% for series in tvseries %}
+  <tr>
+    <td>{{ series.title }}</td>
+    <td>{{ series.seasons }}</td>
+    <td>{{ series.genre|capfirst }}</td>
+    <td>{{ series.year }}</td>
+    {% if series.ongoing == True %}
+    <td>Yes</td>
+    {% else %}
+    <td>No</td>
+    {% endif %}
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'myapp/base.html' %}
+{% block page_title %}Blog{% endblock %}
+{% block nav-item-blog %}active{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Blog</h1>
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with buttons">
+      <div class="btn-group mr-2" role="group" aria-label="Categories">
+      {% if selected %}
+        <a class="btn btn-secondary" href="{% url 'blog:home' %}">ALL</a>
+      {% else %}
+        <button type="button" class="btn btn-secondary" disabled>ALL</button>
+      {% endif %}
+      {% for category in category_list %}
+        {% if selected == category.name %}
+         <button type="button" class="btn btn-secondary" disabled>{{ category|upper }}</button>
+         {% else %}
+        <a class="btn btn-secondary" href="{% url 'blog:post_in_category' category %}">{{ category|upper }}</a>
+        {% endif %}
+      {% endfor %}
+      </div>
+      </div>  
+      {% if object_list %}
+        {% if selected %}
+          <div class="alert alert-info" role="alert" style="margin-top: 12px"> Showing {{ object_list|length }} post{{ object_list|length|pluralize }} from {{ selected }}.</div>  
+        {% else %}
+          <div class="alert alert-info" role="alert" style="margin-top: 12px"> Showing {{ object_list|length }} post{{ object_list|length|pluralize }}.</div>
+        {% endif %}
+        <div class="list-group">
+        {% for obj in object_list %}
+          <!-- begin::Post -->
+          <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <a href="{% url 'blog:post_detail_view' obj.id %}">
+                <h5 class="mb-1">{{ obj.title|title }}</h5>
+              </a>
+              <small>{{ obj.date_create|timesince }} ago</small>
+            </div>
+            <div class="mb-1 markdown2html">{{ obj.body|truncatewords_html:5 }}</div>
+            <small>Updated: {{ obj.date_update }}</small>
+          </div>
+          <!-- end::Post -->
+        {% endfor %}
+        </div>
+      {% else %}
+        <div class="alert alert-danger" role="alert" style="margin-top: 12px">
+          No posts to show!
+        </div>
+      {% endif %}   
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "myapp/base.html" %}
+{% block nav-item-tools %}active{% endblock %}
+{% block title %}Seq Content{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>RevComp</h1>
+
+      {% if not results %}
+
+      <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">RevComp</button>
+      </form>
+
+      {% else %}
+        <p> {{ results }}</p>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
