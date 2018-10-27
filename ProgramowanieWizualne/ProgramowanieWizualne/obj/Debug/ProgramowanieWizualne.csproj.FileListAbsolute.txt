@@ -1,0 +1,13 @@
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\bin\Debug\ProgramowanieWizualne.exe.config
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\bin\Debug\ProgramowanieWizualne.exe
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\bin\Debug\ProgramowanieWizualne.pdb
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\obj\Debug\ProgramowanieWizualne.csprojResolveAssemblyReference.cache
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\obj\Debug\ProgramowanieWizualne.Properties.Resources.resources
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\obj\Debug\ProgramowanieWizualne.csproj.GenerateResource.Cache
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\obj\Debug\ProgramowanieWizualne.exe
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\obj\Debug\ProgramowanieWizualne.pdb
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\obj\Debug\ProgramowanieWizualne.CharactersForm.resources
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\obj\Debug\ProgramowanieWizualne.InventoryForm.resources
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\obj\Debug\ProgramowanieWizualne.ItemsForm.resources
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\obj\Debug\ProgramowanieWizualne.ItemDetailsForm.resources
+C:\Users\Jędrzej\Desktop\Programowanie\VisualStudio\ProgramowanieWizualne\ProgramowanieWizualne\obj\Debug\ProgramowanieWizualne.StatsChartForm.resources
