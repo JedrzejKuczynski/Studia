@@ -1,1 +1,1 @@
-# Programy i projekty ze studiów
+# Programy i projekty ze studiów licencjackich
